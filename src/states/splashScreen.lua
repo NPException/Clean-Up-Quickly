@@ -1,5 +1,4 @@
-local SplashScreen = {}
-SplashScreen.__index = SplashScreen
+local SplashScreen = createNoopIndex({})
 
 function SplashScreen.new()
   local self = setmetatable({}, SplashScreen)

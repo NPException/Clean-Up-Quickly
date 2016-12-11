@@ -1,5 +1,6 @@
 -- global variables
 require("lib.stringfunctions")
+require("lib.metafunctions")
 require("loop")
 
 GLOBALS = { debug = false }
@@ -31,7 +32,6 @@ function love.load(arg)
     end
   })
   globals.state = globals.states.splashScreen
-  print(globals.state)
 end
 
 
@@ -48,35 +48,23 @@ function love.keypressed( key, scancode, isrepeat )
   end
   
   -- do game keypressed actions here
-  local state = globals.state
-  if (state and state.keypressed) then
-    state:keypressed( key, scancode, isrepeat )
-  end
+  globals.state:keypressed( key, scancode, isrepeat )
 end
 
 
 -- MOUSE PRESSED --
 function love.mousepressed( x, y, button )
-  local state = globals.state
-  if (state and state.mousepressed) then
-    state:mousepressed( x, y, button )
-  end
+  globals.state:mousepressed( x, y, button )
 end
 
 -- MOUSE RELEASED --
 function love.mousereleased( x, y, button )
-  local state = globals.state
-  if (state and state.mousereleased) then
-    state:mousereleased( x, y, button )
-  end
+  globals.state:mousereleased( x, y, button )
 end
 
 -- MOUSE MOVED --
 function love.mousemoved( x, y, dx, dy )
-  local state = globals.state
-  if (state and state.mousemoved) then
-    state:mousemoved( x, y, dx, dy )
-  end
+  globals.state:mousemoved( x, y, dx, dy )
 end
 
 
@@ -87,10 +75,7 @@ function love.update(dt)
   globals.time = globals.time + dt
   
   -- do game state update here
-  local state = globals.state
-  if (state and state.update) then
-    state:update( dt )
-  end
+  globals.state:update( dt )
   
   if (globals.debug) then
     fps = love.timer.getFPS()
@@ -103,10 +88,7 @@ end
 -- DRAW --
 function love.draw()
   -- do game state draw here
-  local state = globals.state
-  if (state and state.draw) then
-    state:draw()
-  end
+  globals.state:draw()
   
   if (globals.debug) then
     lg.setColor(0,0,0,128)
