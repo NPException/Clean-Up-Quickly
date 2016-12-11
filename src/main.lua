@@ -30,8 +30,6 @@ function love.keypressed( key, scancode, isrepeat )
   
   if (key == "pause") then
     globals.debug = not globals.debug
-  elseif (scancode == "`") then
-    debug.debug()
   elseif (key == "escape") then
     love.event.quit()
   elseif (key == "return") then
