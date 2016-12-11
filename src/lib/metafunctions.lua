@@ -8,7 +8,7 @@ end
 ]]
 function createNoopIndex( metatable )
   metatable.__index = function(table, key)
-    local value = metaTable[key]
+    local value = metatable[key]
     if not value then
       value = noop
       rawset(metatable, key, value)
