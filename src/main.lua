@@ -58,6 +58,7 @@ end
 
 -- UPDATE --
 function love.update(dt)
+  require("lib.lovebird").update()
   if splash then splash:update(dt) return end
   
   globals.time = globals.time + dt
