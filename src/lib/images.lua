@@ -16,10 +16,14 @@ end
 -- define image table
 local images = {
   -- backgrounds
-  --[[
-  background_game = "assets/gearshift/game_background.png",
-  background_menu = "assets/menu/background_menu.png",
-  ]]
+  background = "assets/background_tmp.png",
+  --background_menu = "assets/menu/background_menu.png",
+  
+  -- props
+  tree = "assets/tree_tmp.png",
+  
+  -- player
+  player = "assets/player_tmp.png",
 }
 
 function images.__index(table, key)
