@@ -4,7 +4,10 @@ require("loop")
 
 Object = require("lib.classic") -- https://github.com/rxi/classic/
 
-GLOBALS = { debug = false }
+GLOBALS = {
+  debug = false,
+  images = require("lib.images")
+}
 local globals = GLOBALS
 
 

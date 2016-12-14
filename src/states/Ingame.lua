@@ -1,6 +1,6 @@
 local IngameState = require("states.GameState"):extend()
 
-local images = require("lib.images")
+local globals = GLOBALS
 
 function IngameState:new()
 end
@@ -16,8 +16,8 @@ end
 local lg = love.graphics
 function IngameState:draw()
   lg.setColor(255,255,255)
-  lg.draw(images.background, 0, 0)
-  lg.draw(images.tree)
+  lg.draw(globals.images.background, 0, 0)
+  lg.draw(globals.images.tree)
 end
 
 
