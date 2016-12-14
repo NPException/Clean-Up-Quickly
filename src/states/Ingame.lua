@@ -23,7 +23,14 @@ end
 
 
 function IngameState:keypressed()
+  require("states.Fader").fadeTo( globals.states.SplashScreen(), 0.3, 0.3 )
+end
 
+
+function IngameState:destroy()
+  -- let the GC deallocate images that we don't need anymore
+  globals.images.background = nil
+  globals.images.tree = nil
 end
 
 return IngameState

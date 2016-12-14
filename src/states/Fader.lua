@@ -28,6 +28,9 @@ end
 function Fader.fadeTo( target, fadeOutTime, fadeInTime, colors )
   local fadeIn = function()
     local targetState = type(target) == "function" and target() or target
+    if GLOBALS.state then
+      GLOBALS.state:destroy()
+    end
     GLOBALS.state = Fader.create( targetState, true, fadeInTime, targetState, colors )
   end
   if (fadeOutTime == 0) then
@@ -77,7 +80,6 @@ function Fader:draw()
   -- draw the state first
   self.state:draw()
   
-  local config = GLOBALS.config
   -- cover it with our fader color
   setColor(self.colors)
   fill("fill", 0, 0, love.graphics.getWidth(), love.graphics.getHeight())

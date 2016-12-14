@@ -1,6 +1,10 @@
 local GameState = Object:extend()
 
 
+function GameState:destroy()
+end
+
+
 function GameState:keypressed( key, scancode, isrepeat )
 end
 
