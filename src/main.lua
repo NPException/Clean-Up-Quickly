@@ -31,12 +31,11 @@ function love.load(arg)
     __index = function(table, key)
       print("Loading state: "..key)
       local StateClass = require("states."..key);
-      local state = StateClass()
-      rawset(table, key, state)
-      return state
+      rawset(table, key, StateClass)
+      return StateClass
     end
   })
-  globals.state = globals.states.SplashScreen
+  globals.state = globals.states.SplashScreen()
 end
 
 
