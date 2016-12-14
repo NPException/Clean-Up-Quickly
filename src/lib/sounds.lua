@@ -38,7 +38,7 @@ function sounds.__index(table, key)
   print("Loading Sound: '"..key.."', path: '"..info.path.."'")
   
   local sound = {
-    source=loadSound(info.path, info.soundtype),
+    source = loadSound(info.path, info.soundtype),
     maxVolume = info.volume,
     play = source_play,
     pause = source_pause,

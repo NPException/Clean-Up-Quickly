@@ -1,7 +1,8 @@
 -- global variables
 require("lib.stringfunctions")
-require("lib.metafunctions")
 require("loop")
+
+Object = require("lib.classic") -- https://github.com/rxi/classic/
 
 GLOBALS = { debug = false }
 local globals = GLOBALS
@@ -26,12 +27,13 @@ function love.load(arg)
   globals.states = setmetatable({}, {
     __index = function(table, key)
       print("Loading state: "..key)
-      local state = require("states."..key).new()
+      local StateClass = require("states."..key);
+      local state = StateClass()
       rawset(table, key, state)
       return state
     end
   })
-  globals.state = globals.states.splashScreen
+  globals.state = globals.states.SplashScreen
 end
 
 

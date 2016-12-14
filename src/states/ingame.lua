@@ -1,10 +1,8 @@
-local IngameState = createNoopIndex({})
+local IngameState = require("states.GameState"):extend()
 
 local images = require("lib.images")
 
-function IngameState.new()
-  local self = setmetatable({}, IngameState)
-  return self
+function IngameState:new()
 end
 
 
@@ -12,6 +10,7 @@ end
 function IngameState:update(dt)
 
 end
+
 
 
 local lg = love.graphics
