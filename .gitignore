@@ -48,3 +48,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# lovedist generated filse
+build/
+lovedist_error.log

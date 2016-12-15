@@ -1,0 +1,12 @@
+{
+  "name": "CleanUpQuickly",
+  
+  "srcFolder": "./src",
+  "targetFolder": "./build",
+  
+  "love_win32bit": "./love_binaries/win32",
+  "love_win64bit": "./love_binaries/win64",
+  
+  "love_osx_app": "./love_binaries/love.app",
+  "osx_bundle_identitfier": "com.MyCompany.MyGame"
+}
