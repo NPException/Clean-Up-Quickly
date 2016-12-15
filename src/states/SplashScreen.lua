@@ -8,15 +8,14 @@ function SplashScreen:new()
 end
 
 function SplashScreen:update(dt)
+  if GLOBALS.input:pressed("action") then
+    self.splash:skip()
+  end
   self.splash:update(dt)
 end
 
 function SplashScreen:draw()
   self.splash:draw()
-end
-
-function SplashScreen:keypressed()
-  self.splash:skip()
 end
 
 return SplashScreen

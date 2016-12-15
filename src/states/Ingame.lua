@@ -8,7 +8,9 @@ end
 
 
 function IngameState:update(dt)
-
+  if globals.input:pressed("action") then
+    require("states.Fader").fadeTo( globals.states.SplashScreen(), 0.3, 0.3 )
+  end
 end
 
 
@@ -20,11 +22,6 @@ function IngameState:draw()
   lg.draw(globals.images.tree)
 end
 
-
-
-function IngameState:keypressed()
-  require("states.Fader").fadeTo( globals.states.SplashScreen(), 0.3, 0.3 )
-end
 
 
 function IngameState:destroy()

@@ -4,9 +4,25 @@ require("loop")
 
 Object = require("lib.classic") -- https://github.com/rxi/classic/
 
+local controls = {
+        left = {'key:left',  'axis:leftx-',  'button:dpleft'},
+       right = {'key:right', 'axis:leftx+',  'button:dpright'},
+          up = {'key:up',    'axis:lefty-',  'button:dpup'},
+        down = {'key:down',  'axis:lefty+',  'button:dpdown'},
+        
+   flingLeft = {'sc:a',      'axis:rightx-', 'button:x'},
+  flingRight = {'sc:d',      'axis:rightx+', 'button:b'},
+     flingUp = {'sc:w',      'axis:righty-', 'button:y'},
+   flingDown = {'sc:s',      'axis:righty+', 'button:a'},
+   
+      action = {'key:space', 'button:rightshoulder'}
+}
+
+
 GLOBALS = {
   debug = false,
-  images = require("lib.images")
+  images = require("lib.images"),
+  input = require("lib.baton").new(controls, love.joystick.getJoysticks()[1])
 }
 local globals = GLOBALS
 
@@ -50,26 +66,8 @@ function love.keypressed( key, scancode, isrepeat )
 --      love.window.setFullscreen(not love.window.getFullscreen(), "desktop")
 --    end
   end
-  
-  -- do game keypressed actions here
-  globals.state:keypressed( key, scancode, isrepeat )
 end
 
-
--- MOUSE PRESSED --
-function love.mousepressed( x, y, button )
-  globals.state:mousepressed( x, y, button )
-end
-
--- MOUSE RELEASED --
-function love.mousereleased( x, y, button )
-  globals.state:mousereleased( x, y, button )
-end
-
--- MOUSE MOVED --
-function love.mousemoved( x, y, dx, dy )
-  globals.state:mousemoved( x, y, dx, dy )
-end
 
 
 -- UPDATE --
@@ -77,6 +75,8 @@ function love.update(dt)
   require("lib.lovebird").update()
   
   globals.time = globals.time + dt
+  
+  globals.input:update()
   
   -- do game state update here
   globals.state:update( dt )
