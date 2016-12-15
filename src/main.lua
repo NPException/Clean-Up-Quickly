@@ -5,17 +5,18 @@ require("loop")
 Object = require("lib.classic") -- https://github.com/rxi/classic/
 
 local controls = {
-        left = {'key:left',  'axis:leftx-',  'button:dpleft'},
-       right = {'key:right', 'axis:leftx+',  'button:dpright'},
-          up = {'key:up',    'axis:lefty-',  'button:dpup'},
-        down = {'key:down',  'axis:lefty+',  'button:dpdown'},
-        
-   flingLeft = {'sc:a',      'axis:rightx-', 'button:x'},
-  flingRight = {'sc:d',      'axis:rightx+', 'button:b'},
-     flingUp = {'sc:w',      'axis:righty-', 'button:y'},
-   flingDown = {'sc:s',      'axis:righty+', 'button:a'},
-   
-      action = {'key:space', 'button:rightshoulder'}
+         left = {'key:left',  'axis:leftx-',  'button:dpleft'},
+        right = {'key:right', 'axis:leftx+',  'button:dpright'},
+           up = {'key:up',    'axis:lefty-',  'button:dpup'},
+         down = {'key:down',  'axis:lefty+',  'button:dpdown'},
+
+    flingLeft = {'sc:a',      'axis:rightx-', 'button:x'},
+   flingRight = {'sc:d',      'axis:rightx+', 'button:b'},
+      flingUp = {'sc:w',      'axis:righty-', 'button:y'},
+    flingDown = {'sc:s',      'axis:righty+', 'button:a'},
+
+       action = {'key:space', 'button:rightshoulder'},
+  switchMusic = {'key:m', 'button:back'},
 }
 
 
